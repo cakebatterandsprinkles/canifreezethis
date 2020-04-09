@@ -20,9 +20,14 @@ mongoose.connect(DATABASE, {
 mongoose.Promise = global.Promise;
 mongoose.connection.on('error', error => {
   console.log(`Mongoose connection error: ${error.message}`)
-})
+});
 
-// parsing the request object (eg. req.query will give you request params)
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'pug');
+
+app.use(express.static(path.join(__dirname, 'public')));
+
+// parsing the request object (req.body / req.query / req.params)
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: true
