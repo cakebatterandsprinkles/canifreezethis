@@ -22,7 +22,12 @@
   },
   "homepage": "https://github.com/cakebatterandsprinkles/canifreezethis#readme",
   "devDependencies": {
-    "nodemon": "^2.0.3"
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.1.0",
+    "babel-preset-env": "^1.7.0",
+    "concurrently": "^5.1.0",
+    "nodemon": "^2.0.3",
+    "webpack": "^4.42.1"
   },
   "dependencies": {
     "dotenv": "^8.2.0",
