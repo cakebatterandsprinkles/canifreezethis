@@ -6,6 +6,7 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const app = express();
 const routes = require('./routes/index');
+const helpers = require('./helpers');
 
 require('dotenv').config({
   path: 'variables.env'
@@ -35,6 +36,12 @@ app.use(bodyParser.urlencoded({
 
 // parsing the cookies that come with the request, sticks them into req.cookies
 app.use(cookieParser());
+
+app.use((req, res, next) => {
+  res.locals.h = helpers;
+  res.locals.currentPath = req.path;
+  next();
+});
 
 app.use('/', routes);
 
